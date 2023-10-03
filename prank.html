@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Shaking Text Prank</title>
+    <style>
+        .shake-text {
+            animation: shake 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) both infinite;
+            display: inline-block;
+        }
+
+        @keyframes shake {
+            0%, 100% {
+                transform: translateX(0);
+            }
+            10%, 30%, 50%, 70%, 90% {
+                transform: translateX(-5px);
+            }
+            20%, 40%, 60%, 80% {
+                transform: translateX(5px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <button onclick="shakeText()">Click me!</button>
+    <p id="prank-text">I'm a normal text.</p>
+
+    <script>
+        function shakeText() {
+            const textElement = document.getElementById("prank-text");
+            textElement.classList.add("shake-text");
+
+            setTimeout(() => {
+                textElement.classList.remove("shake-text");
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
